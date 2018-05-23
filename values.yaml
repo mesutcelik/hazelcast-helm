@@ -1,12 +1,6 @@
 ---
-# image source is https://github.com/cf-platform-eng/pcf-examples/tree/master/src/docker
+images:
+  hazelcast:
+    image: "hazelcast/hazelcast-kubernetes"
+    imageTag: "3.10.1"
 
-image: cfplatformeng/spacebears
-imageTag: latest
-
-spacebears:
-  username: admin_db
-  password: monkey123
-
-service:
-  type: LoadBalancer
