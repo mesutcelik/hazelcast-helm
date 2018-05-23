@@ -5,7 +5,7 @@ metadata:
   labels:
     app: hazelcast
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: hazelcast
   ports:
@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
       - name: hazelcast-node
-        image: hazelcast/hazelcast-kubernetes:3.10
+        image: {{ .Values.images.hazelcast.image }}
         ports:
         - containerPort: 5701
         livenessProbe:
