@@ -20,7 +20,7 @@ kind: ReplicationController
 metadata:
   name: hazelcast
 spec:
-  replicas: 3
+  replicas: 2
   template:
     metadata:
       labels:
@@ -34,7 +34,11 @@ spec:
         volumeMounts:
         - name: hazelcast-storage
           mountPath: /data/hazelcast
+        env:
+        - name: HZ_DATA
+          value: /data/hazelcast
       volumes:
       - name: hazelcast-storage
         configMap:
           name: hazelcast-configuration
+          
