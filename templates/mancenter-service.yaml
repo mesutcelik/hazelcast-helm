@@ -5,13 +5,13 @@ metadata:
   labels:
     app: mancenter
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   selector:
     app: mancenter
   ports:
   - protocol: TCP
-    port: 5701
-    name: hzport
+    port: 8080
+    name: mancenter-port
 
 ---
 
