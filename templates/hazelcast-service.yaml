@@ -31,10 +31,10 @@ spec:
         image: {{ .Values.images.hazelcast.image }}
         ports:
         - containerPort: 5701
-        livenessProbe:
-          exec:
-            command:
-            - "./liveness.sh"
-          initialDelaySeconds: 30
-          timeoutSeconds: 5
-          periodSeconds: 10
+        volumeMounts:
+        - name: hazelcast-storage
+          mountPath: /data/hazelcast
+      volumes:
+      - name: hazelcast-storage
+        configMap:
+          name: hazelcast-configuration
